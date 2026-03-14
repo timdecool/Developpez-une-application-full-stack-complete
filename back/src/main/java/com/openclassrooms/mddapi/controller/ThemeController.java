@@ -21,10 +21,7 @@ public class ThemeController {
     @GetMapping("")
     public ResponseEntity<List<ThemeDTO>> findAllThemes() {
         List<ThemeDTO> themes = themeService.findAllThemes();
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(themes)
-                ;
+        return ResponseEntity.ok(themes);
     }
 
 }
