@@ -24,12 +24,10 @@ public class SubscriptionService {
     @Autowired
     private ThemeRepository themeRepository;
 
-    public void subscribe(Long userId, Long themeId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new NoSuchElementException("User not found"));
-
+    public void subscribe(Long themeId) {
         Theme theme = themeRepository.findById(themeId)
                 .orElseThrow(() -> new NoSuchElementException("Theme not found"));
+        User user = userRepository.findByEmail(AuthService.getCurrentUser());
 
         Subscription subscription = new Subscription();
         subscription.setUser(user);

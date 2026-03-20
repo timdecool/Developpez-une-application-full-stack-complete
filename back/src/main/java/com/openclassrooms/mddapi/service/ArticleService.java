@@ -32,14 +32,11 @@ public class ArticleService {
     private ArticleMapper articleMapper;
 
     public ArticleDTO createArticle(ArticleRequestDTO dto) {
-        User user = userRepository.findById(dto.getUserId()).orElseThrow(
-                () -> new NoSuchElementException("User not found with id " + dto.getUserId())
-        );
-
         Theme theme = themeRepository.findById(dto.getThemeId()).orElseThrow(
                 () -> new NoSuchElementException("Theme not found with id " + dto.getThemeId())
         );
 
+        User user = userRepository.findByEmail(AuthService.getCurrentUser());
         Article article = articleMapper.toEntity(dto, theme, user);
         Article newArticle = articleRepository.save(article);
         return articleMapper.toDTO(newArticle);

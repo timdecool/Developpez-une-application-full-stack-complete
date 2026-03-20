@@ -23,7 +23,4 @@ public class ArticleRequestDTO {
     @NotNull(message="Theme id is required")
     private Long themeId;
 
-    @NotNull(message="User id is required")
-    private Long userId;
-
 }

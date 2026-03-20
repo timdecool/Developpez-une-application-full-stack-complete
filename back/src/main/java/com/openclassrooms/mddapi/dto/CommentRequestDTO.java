@@ -19,7 +19,4 @@ public class CommentRequestDTO {
     @NotNull(message="Article id is required")
     private Long articleId;
 
-    @NotNull(message="User id is required")
-    private Long userId;
-
 }
