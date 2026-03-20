@@ -1,13 +1,12 @@
 package com.openclassrooms.mddapi.controller;
 
 import com.openclassrooms.mddapi.dto.ThemeDTO;
+import com.openclassrooms.mddapi.service.SubscriptionService;
 import com.openclassrooms.mddapi.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,10 +17,35 @@ public class ThemeController {
     @Autowired
     private ThemeService themeService;
 
+    @Autowired
+    private SubscriptionService subscriptionService;
+
     @GetMapping("")
     public ResponseEntity<List<ThemeDTO>> findAllThemes() {
         List<ThemeDTO> themes = themeService.findAllThemes();
         return ResponseEntity.ok(themes);
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<List<ThemeDTO>> findMyThemes() {
+        List<ThemeDTO> themes = themeService.findMyThemes();
+        return ResponseEntity.ok(themes);
+    }
+
+    @PostMapping("/{id}/subscribe")
+    public ResponseEntity<Void> subscribe(
+            @PathVariable("id") final Long themeId
+    ) {
+        subscriptionService.subscribe(themeId);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{id}/unsubscribe")
+    public ResponseEntity<Void> unsubscribe(
+            @PathVariable("id") final Long id
+    ) {
+        subscriptionService.unsubscribe(id);
+        return ResponseEntity.ok().build();
     }
 
 }
