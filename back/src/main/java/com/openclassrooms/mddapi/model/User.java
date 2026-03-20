@@ -5,6 +5,7 @@ import net.bytebuddy.asm.Advice;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -23,6 +24,9 @@ public class User {
     @Column(unique = true)
     private String email;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Subscription> subscriptions;
+
     @Column(name="created_at")
     private LocalDateTime createdAt;
 
@@ -39,5 +43,4 @@ public class User {
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
     }
-
 }
