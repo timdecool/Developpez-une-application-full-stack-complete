@@ -26,6 +26,12 @@ public class ThemeController {
         return ResponseEntity.ok(themes);
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<List<ThemeDTO>> findMyThemes() {
+        List<ThemeDTO> themes = themeService.findMyThemes();
+        return ResponseEntity.ok(themes);
+    }
+
     @PostMapping("/{id}/subscribe")
     public ResponseEntity<Void> subscribe(
             @PathVariable("id") final Long themeId
