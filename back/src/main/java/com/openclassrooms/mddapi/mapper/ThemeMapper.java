@@ -2,9 +2,9 @@ package com.openclassrooms.mddapi.mapper;
 
 import com.openclassrooms.mddapi.dto.ThemeDTO;
 import com.openclassrooms.mddapi.model.Theme;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class ThemeMapper {
 
     public ThemeDTO toDTO(Theme theme) {
