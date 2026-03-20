@@ -40,9 +40,7 @@ public class CommentService {
         Article article = articleRepository.findById(dto.getArticleId()).orElseThrow(
                 () -> new NoSuchElementException("Article not found with id " + dto.getArticleId())
         );
-        User user = userRepository.findById(dto.getUserId()).orElseThrow(
-                () -> new NoSuchElementException("User not found with id " + dto.getUserId())
-        );
+        User user = userRepository.findByEmail(AuthService.getCurrentUser());
 
         Comment comment = commentMapper.toEntity(dto, article, user);
         Comment newComment = commentRepository.save(comment);

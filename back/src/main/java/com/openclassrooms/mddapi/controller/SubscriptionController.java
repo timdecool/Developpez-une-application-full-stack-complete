@@ -14,12 +14,11 @@ public class SubscriptionController {
     @Autowired
     private SubscriptionService subscriptionService;
 
-    @PostMapping("/user/{userId}/theme/{themeId}")
+    @PostMapping("/theme/{themeId}")
     public ResponseEntity<Void> subscribe(
-            @PathVariable("userId") final Long userId,
             @PathVariable("themeId") final Long themeId
     ) {
-        subscriptionService.subscribe(userId, themeId);
+        subscriptionService.subscribe(themeId);
         return ResponseEntity.ok().build();
     }
 

@@ -17,7 +17,6 @@ public class CommentMapper {
     @Autowired
     UserMapper userMapper;
 
-
     public CommentDTO toDTO(Comment comment) {
         CommentDTO dto = new CommentDTO();
         dto.setId(comment.getId());
