@@ -3,9 +3,9 @@ package com.openclassrooms.mddapi.mapper;
 import com.openclassrooms.mddapi.dto.UserProfileDTO;
 import com.openclassrooms.mddapi.dto.UserRequestDTO;
 import com.openclassrooms.mddapi.model.User;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class UserMapper {
 
     public UserProfileDTO toDTO(User user) {
