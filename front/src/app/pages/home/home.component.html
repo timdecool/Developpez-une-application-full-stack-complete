@@ -1,5 +1,9 @@
 <div class="center">
-  <img src="/assets/logo_p6.png" alt="logo" />
-  <h1>Welcome to MDD</h1>
-  <button mat-raised-button color="primary" (click)="start()">Commencer</button>
+  <div class="logo">
+    <img ngSrc="/assets/logo_p6.png" alt="logo" height="401" width="695" />
+  </div>
+  <div class="flex">
+    <a routerLink="/login" matButton="outlined" color="primary">Se connecter</a>
+    <a routerLink="/register" matButton="outlined" color="primary">S'inscrire</a>
+  </div>
 </div>
