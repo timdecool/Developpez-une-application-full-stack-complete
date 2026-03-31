@@ -23,7 +23,7 @@ export class AuthService {
       tap(response => {
         this.setToken(response.token);
         this.user.set(response.user);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/articles']);
       })
     );
   }
@@ -33,9 +33,14 @@ export class AuthService {
       tap(response => {
         this.setToken(response.token);
         this.user.set(response.user);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/articles']);
       })
     );
+  }
+
+  logout() {
+      this.removeToken();
+      this.user.set(null);
   }
 
   setToken(token: string) {
