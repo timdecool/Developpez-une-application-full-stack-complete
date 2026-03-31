@@ -5,6 +5,7 @@ import {AuthResponse} from "../models/AuthResponse";
 import {UserRequest} from "../models/UserRequest";
 import {User} from "../models/User";
 import {Router} from "@angular/router";
+import {AuthRequest} from "../models/AuthRequest";
 
 @Injectable({
   providedIn: 'root',
@@ -15,14 +16,22 @@ export class AuthService {
   router = inject(Router);
 
   private user = signal<User|null>(null);
-
   private tokenKey = 'auth_token';
 
   register(userRequest: UserRequest): Observable<AuthResponse> {
-    console.log("registration")
     return this.api.post<AuthResponse>('auth/register', userRequest).pipe(
       tap(response => {
-        this.setToken(response.token)
+        this.setToken(response.token);
+        this.user.set(response.user);
+        this.router.navigate(['/dashboard']);
+      })
+    );
+  }
+
+  login(authRequest: AuthRequest): Observable<AuthResponse> {
+    return this.api.post<AuthResponse>('auth/login', authRequest).pipe(
+      tap(response => {
+        this.setToken(response.token);
         this.user.set(response.user);
         this.router.navigate(['/dashboard']);
       })

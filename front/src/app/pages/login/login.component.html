@@ -1,1 +1,40 @@
 <app-header />
+<main>
+  <h2>Se connecter</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error>
+        @if(loginForm.controls.email.invalid) {
+          @if(loginForm.controls.email.errors?.['required']) {
+            Il faut renseigner un email valide.
+          }
+          @if(loginForm.controls.email.errors?.['email']) {
+            Le format de l'email est invalide.
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Mot de passe</mat-label>
+      <input matInput type="password" formControlName="password" />
+      <mat-error>
+        @if(loginForm.controls.password.invalid) {
+          @if(loginForm.controls.password.errors?.['minlength']) {
+            Le mot de passe doit contenir au moins 8 caractères.
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      matButton="filled"
+      color="primary"
+      [disabled]="loginForm.invalid"
+    >Se connecter</button>
+  </form>
+
+</main>
