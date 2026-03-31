@@ -13,18 +13,32 @@ export class AuthService {
 
   api = inject(ApiService);
   router = inject(Router);
-  private token = signal<String|null>(null);
+
   private user = signal<User|null>(null);
+
+  private tokenKey = 'auth_token';
 
   register(userRequest: UserRequest): Observable<AuthResponse> {
     console.log("registration")
     return this.api.post<AuthResponse>('auth/register', userRequest).pipe(
       tap(response => {
-        this.token.set(response.token);
+        this.setToken(response.token)
         this.user.set(response.user);
         this.router.navigate(['/dashboard']);
       })
     );
+  }
+
+  setToken(token: string) {
+    localStorage.setItem(this.tokenKey, token);
+  }
+
+  getToken(): string|null {
+    return localStorage.getItem(this.tokenKey);
+  }
+
+  removeToken() {
+    localStorage.removeItem(this.tokenKey);
   }
 
 
