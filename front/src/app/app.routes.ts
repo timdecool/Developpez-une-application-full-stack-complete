@@ -32,13 +32,13 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: 'articles/:id',
-    component: ArticleDetailsComponent,
+    path: 'articles/new',
+    component: ArticleCreationComponent,
     canActivate: [authGuard]
   },
   {
-    path: 'articles/new',
-    component: ArticleCreationComponent,
+    path: 'articles/:id',
+    component: ArticleDetailsComponent,
     canActivate: [authGuard]
   },
   {
