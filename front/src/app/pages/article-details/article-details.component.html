@@ -1,1 +1,14 @@
 <app-header />
+<main>
+  @if(article(); as article) {
+    <h1>{{ article.title }}</h1>
+    <div>
+      <p>{{ article.date | date:'longDate'}}</p>
+      <p>{{ article.author.username }}</p>
+      <p>{{ article.theme.name }}</p>
+    </div>
+    <div>
+      {{ article.content }}
+    </div>
+  }
+</main>

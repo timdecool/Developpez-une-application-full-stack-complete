@@ -2,7 +2,7 @@
 <main>
   <a matButton routerLink="/articles/new">Créer un article</a>
   @for(article of articles(); track article.id) {
-    <mat-card>
+    <mat-card (click)="readArticle(article.id)">
       <mat-card-title>{{ article.title }}</mat-card-title>
       <mat-card-subtitle>
         {{ article.date | date:'longDate' }} - {{ article.author.username }}

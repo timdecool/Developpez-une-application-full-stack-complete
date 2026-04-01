@@ -5,7 +5,7 @@ import {Article} from "../../shared/models/Article";
 import {MatCard, MatCardContent, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {MatButton} from "@angular/material/button";
 import {DatePipe} from "@angular/common";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-articles',
@@ -26,7 +26,10 @@ import {RouterLink} from "@angular/router";
 export class ArticlesComponent {
 
   articleService = inject(ArticleService);
+  router = inject(Router)
+
   articles = signal<Article[]>([]);
+
 
   ngOnInit() {
     if (this.articles().length > 0) this.articles.set([]);
@@ -35,4 +38,7 @@ export class ArticlesComponent {
     });
   }
 
+  readArticle(id: number): void {
+    this.router.navigate([`/articles/${id}`]);
+  }
 }
