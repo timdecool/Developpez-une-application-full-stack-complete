@@ -1,1 +1,23 @@
 <app-header />
+<main>
+  @for(theme of themes(); track theme.id) {
+    <mat-card>
+      <mat-card-title>{{theme.name}}</mat-card-title>
+      <mat-card-content>
+        {{theme.description}}
+      </mat-card-content>
+      <mat-card-actions>
+          @if(theme.subscribed) {
+            <button matButton disabled>
+              Déjà abonné
+            </button>
+          }
+          @else {
+            <button matButton (click)="subscribeTheme(theme.id)">
+              S'abonner
+            </button>
+          }
+      </mat-card-actions>
+    </mat-card>
+  }
+</main>
