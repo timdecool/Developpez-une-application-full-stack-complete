@@ -1,1 +1,22 @@
 <app-header />
+<main>
+
+
+
+  <section>
+    <h1>Abonnements</h1>
+    @for(theme of themes(); track theme.id) {
+      <mat-card>
+        <mat-card-title>{{theme.name}}</mat-card-title>
+        <mat-card-content>
+          {{theme.description}}
+        </mat-card-content>
+        <mat-card-actions>
+          <button matButton (click)="unsubscribeTheme(theme.id)">
+            Se désabonner
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </section>
+</main>
