@@ -9,7 +9,6 @@ import {Theme} from "../models/Theme";
 export class ThemeService {
 
   api = inject(ApiService);
-  themes = signal<Theme[]>([]);
 
   getThemes(): Observable<Theme[]> {
     return this.api.get<Theme[]>('themes')
