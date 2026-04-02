@@ -36,6 +36,7 @@ public class AuthService {
     private PasswordEncoder encoder;
 
     public TokenDTO login(@Valid LoginDTO login) {
+
         return generateToken(login.getLogin(), login.getPassword());
     }
 
@@ -73,7 +74,13 @@ public class AuthService {
         }
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        return new TokenDTO(jwtUtil.generateToken(userDetails.getUsername()));
+        TokenDTO token = new TokenDTO();
+        token.setToken(jwtUtil.generateToken(userDetails.getUsername()));
+
+        User user = userRepository.findByEmail(userDetails.getUsername());
+        token.setUser(userMapper.toDTO(user));
+
+        return token;
     }
 
     public UserProfileDTO getCurrentUserDetails() {
