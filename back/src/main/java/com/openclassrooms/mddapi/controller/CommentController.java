@@ -31,8 +31,8 @@ public class CommentController {
     private ResponseEntity<CommentDTO> createComment(
             @Valid @RequestBody CommentRequestDTO dto
     ) {
-        CommentDTO article = commentService.createComment(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(article);
+        CommentDTO comment = commentService.createComment(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(comment);
     }
 
 }

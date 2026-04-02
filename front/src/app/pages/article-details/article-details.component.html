@@ -11,4 +11,23 @@
       {{ article.content }}
     </div>
   }
+
+  <h2>Commentaires</h2>
+  @for(comment of comments(); track comment.id) {
+    <div>
+      <p>{{ comment.author.username }}</p>
+      <div>
+        {{ comment.content }}
+      </div>
+    </div>
+  }
+
+  <div>
+    <form [formGroup]="commentForm" (ngSubmit)="createComment()">
+      <mat-form-field>
+        <textarea matInput formControlName="content"></textarea>
+      </mat-form-field>
+      <button matButton>Envoyer</button>
+    </form>
+  </div>
 </main>
