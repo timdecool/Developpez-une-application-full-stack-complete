@@ -1,6 +1,6 @@
 <app-header />
 
-<main>
+<app-main-container>
   <a matButton routerLink="/articles/new">Créer un article</a>
   @for(article of articles(); track article.id) {
     <mat-card (click)="readArticle(article.id)">
@@ -13,4 +13,4 @@
       </mat-card-content>
     </mat-card>
   }
-</main>
+</app-main-container>

@@ -11,10 +11,11 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {CommentRequest} from "../../shared/models/CommentRequest";
 import {MatButton} from "@angular/material/button";
 import {BackArrowComponent} from "../../shared/components/back-arrow/back-arrow.component";
+import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
 
 @Component({
   selector: 'app-article-details',
-  imports: [HeaderComponent, DatePipe, MatFormField, MatInput, ReactiveFormsModule, MatButton, BackArrowComponent],
+  imports: [HeaderComponent, DatePipe, MatFormField, MatInput, ReactiveFormsModule, MatButton, BackArrowComponent, MainContainerComponent],
   templateUrl: './article-details.component.html',
   styleUrl: './article-details.component.scss',
   standalone: true

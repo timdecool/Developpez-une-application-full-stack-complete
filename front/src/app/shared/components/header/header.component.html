@@ -3,12 +3,14 @@
     <img ngSrc="/assets/logo_p6.png" alt="logo" height="401" width="695" />
   </div>
 
-  <nav>
-    <ul>
-      <li (click)="logout()">Se déconnecter</li>
-      <li><a routerLink="/articles">Articles</a></li>
-      <li><a routerLink="/themes">Thèmes</a></li>
-      <li><a routerLink="/profile">Profil</a></li>
-    </ul>
-  </nav>
+  @if(authService.getUser()) {
+    <nav>
+      <ul>
+        <li (click)="logout()">Se déconnecter</li>
+        <li><a routerLink="/articles">Articles</a></li>
+        <li><a routerLink="/themes">Thèmes</a></li>
+        <li><a routerLink="/profile">Profil</a></li>
+      </ul>
+    </nav>
+  }
 </header>

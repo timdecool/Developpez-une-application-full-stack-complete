@@ -1,25 +1,24 @@
 <app-header />
-<app-back-arrow />
-
-<main>
-  <h1>Créer un nouvel article</h1>
-  <form [formGroup]="articleForm" (ngSubmit)="createArticle()">
-    <mat-form-field>
-      <mat-select formControlName="themeId">
-          <mat-option [value]="0">Sélectionner un thème</mat-option>
-        @for(theme of themes(); track theme.id) {
-          <mat-option [value]="theme.id">{{ theme.name }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Titre de l'article</mat-label>
-      <input matInput formControlName="title">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Contenu de l'article</mat-label>
-      <textarea matInput formControlName="content"></textarea>
-    </mat-form-field>
-    <button matButton>Créer</button>
-  </form>
-</main>
+<app-main-container>
+  <app-back-arrow />
+   <h1>Créer un nouvel article</h1>
+    <form [formGroup]="articleForm" (ngSubmit)="createArticle()">
+      <mat-form-field>
+        <mat-select formControlName="themeId">
+            <mat-option [value]="0">Sélectionner un thème</mat-option>
+          @for(theme of themes(); track theme.id) {
+            <mat-option [value]="theme.id">{{ theme.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Titre de l'article</mat-label>
+        <input matInput formControlName="title">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Contenu de l'article</mat-label>
+        <textarea matInput formControlName="content"></textarea>
+      </mat-form-field>
+      <button matButton>Créer</button>
+    </form>
+</app-main-container>

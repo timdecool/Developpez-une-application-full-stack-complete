@@ -1,7 +1,6 @@
 <app-header />
-<app-back-arrow />
-
-<main>
+<app-main-container>
+  <app-back-arrow />
   @if(article(); as article) {
     <h1>{{ article.title }}</h1>
     <div>
@@ -32,4 +31,5 @@
       <button matButton>Envoyer</button>
     </form>
   </div>
-</main>
+</app-main-container>
+

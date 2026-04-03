@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {MatButton, MatButtonModule} from "@angular/material/button";
 import {NgOptimizedImage} from "@angular/common";
+import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
 
 @Component({
     selector: 'app-home',
@@ -11,7 +12,8 @@ import {NgOptimizedImage} from "@angular/common";
     RouterLink,
     MatButtonModule,
     MatButton,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MainContainerComponent
   ],
     standalone: true
 })

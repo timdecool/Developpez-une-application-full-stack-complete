@@ -6,6 +6,7 @@ import {MatCard, MatCardContent, MatCardSubtitle, MatCardTitle} from "@angular/m
 import {MatButton} from "@angular/material/button";
 import {DatePipe} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
+import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
 
 @Component({
   selector: 'app-articles',
@@ -17,7 +18,8 @@ import {Router, RouterLink} from "@angular/router";
     MatButton,
     MatCardSubtitle,
     DatePipe,
-    RouterLink
+    RouterLink,
+    MainContainerComponent
   ],
   templateUrl: './articles.component.html',
   styleUrl: './articles.component.scss',

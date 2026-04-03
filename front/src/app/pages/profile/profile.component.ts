@@ -9,10 +9,11 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {MatError, MatFormField, MatInput, MatLabel} from "@angular/material/input";
 import {AuthRequest} from "../../shared/models/AuthRequest";
 import {UserRequest} from "../../shared/models/UserRequest";
+import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
 
 @Component({
   selector: 'app-profile',
-  imports: [HeaderComponent, MatButton, MatCard, MatCardActions, MatCardContent, MatCardTitle, ReactiveFormsModule, MatFormField, MatInput, MatLabel],
+  imports: [HeaderComponent, MatButton, MatCard, MatCardActions, MatCardContent, MatCardTitle, ReactiveFormsModule, MatFormField, MatInput, MatLabel, MainContainerComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
   standalone: true

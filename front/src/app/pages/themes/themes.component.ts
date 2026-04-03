@@ -4,10 +4,11 @@ import {ThemeService} from "../../shared/services/theme.service";
 import {Theme} from "../../shared/models/Theme";
 import {MatCard, MatCardActions, MatCardContent, MatCardTitle} from "@angular/material/card";
 import {MatButton} from "@angular/material/button";
+import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
 
 @Component({
   selector: 'app-themes',
-  imports: [HeaderComponent, MatCard, MatCardTitle, MatCardContent, MatCardActions, MatButton],
+  imports: [HeaderComponent, MatCard, MatCardTitle, MatCardContent, MatCardActions, MatButton, MainContainerComponent],
   templateUrl: './themes.component.html',
   styleUrl: './themes.component.scss',
   standalone: true

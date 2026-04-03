@@ -6,6 +6,7 @@ import {MatButton, MatIconButton} from "@angular/material/button";
 import {AuthService} from "../../shared/services/auth.service";
 import {UserRequest} from "../../shared/models/UserRequest";
 import {BackArrowComponent} from "../../shared/components/back-arrow/back-arrow.component";
+import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ import {BackArrowComponent} from "../../shared/components/back-arrow/back-arrow.
     HeaderComponent,
     ReactiveFormsModule,
     MatFormField,
-    MatInput, MatLabel, MatButton, MatError, BackArrowComponent
+    MatInput, MatLabel, MatButton, MatError, BackArrowComponent, MainContainerComponent
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',

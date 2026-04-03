@@ -1,5 +1,5 @@
 <app-header />
-<main>
+<app-main-container>
   <section>
     <h2>Profil utilisateur</h2>
     <form [formGroup]="profileForm" (ngSubmit)="updateUser()">
@@ -18,7 +18,6 @@
         <input matInput type="password" formControlName="password" />
       </mat-form-field>
 
-
       <button
         matButton="filled"
         color="primary"
@@ -27,7 +26,7 @@
   </section>
 
   <section>
-    <h1>Abonnements</h1>
+    <h2>Abonnements</h2>
     @for(theme of themes(); track theme.id) {
       <mat-card>
         <mat-card-title>{{theme.name}}</mat-card-title>
@@ -42,4 +41,4 @@
       </mat-card>
     }
   </section>
-</main>
+</app-main-container>
