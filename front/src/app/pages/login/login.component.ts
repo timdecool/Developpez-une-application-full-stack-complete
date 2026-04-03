@@ -5,10 +5,11 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {AuthRequest} from "../../shared/models/AuthRequest";
 import {MatButton} from "@angular/material/button";
 import {MatError, MatFormField, MatInput, MatLabel} from "@angular/material/input";
+import {BackArrowComponent} from "../../shared/components/back-arrow/back-arrow.component";
 
 @Component({
   selector: 'app-login',
-  imports: [HeaderComponent, FormsModule, MatButton, MatError, MatFormField, MatInput, MatLabel, ReactiveFormsModule],
+  imports: [HeaderComponent, FormsModule, MatButton, MatError, MatFormField, MatInput, MatLabel, ReactiveFormsModule, BackArrowComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   standalone: true

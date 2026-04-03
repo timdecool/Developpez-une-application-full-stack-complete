@@ -12,7 +12,7 @@ import {UserRequest} from "../../shared/models/UserRequest";
 
 @Component({
   selector: 'app-profile',
-  imports: [HeaderComponent, MatButton, MatCard, MatCardActions, MatCardContent, MatCardTitle, ReactiveFormsModule, MatError, MatFormField, MatInput, MatLabel],
+  imports: [HeaderComponent, MatButton, MatCard, MatCardActions, MatCardContent, MatCardTitle, ReactiveFormsModule, MatFormField, MatInput, MatLabel],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
   standalone: true

@@ -10,10 +10,11 @@ import {MatFormField, MatInput} from "@angular/material/input";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CommentRequest} from "../../shared/models/CommentRequest";
 import {MatButton} from "@angular/material/button";
+import {BackArrowComponent} from "../../shared/components/back-arrow/back-arrow.component";
 
 @Component({
   selector: 'app-article-details',
-  imports: [HeaderComponent, DatePipe, MatFormField, MatInput, ReactiveFormsModule, MatButton],
+  imports: [HeaderComponent, DatePipe, MatFormField, MatInput, ReactiveFormsModule, MatButton, BackArrowComponent],
   templateUrl: './article-details.component.html',
   styleUrl: './article-details.component.scss',
   standalone: true

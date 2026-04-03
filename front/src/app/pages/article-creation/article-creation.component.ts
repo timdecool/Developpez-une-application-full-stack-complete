@@ -9,10 +9,11 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import {Theme} from "../../shared/models/Theme";
 import {ThemeService} from "../../shared/services/theme.service";
 import {MatButton} from "@angular/material/button";
+import {BackArrowComponent} from "../../shared/components/back-arrow/back-arrow.component";
 
 @Component({
   selector: 'app-article-creation',
-  imports: [HeaderComponent, ReactiveFormsModule, MatFormField, MatSelect, MatOption, MatButton, MatInput, MatLabel],
+  imports: [HeaderComponent, ReactiveFormsModule, MatFormField, MatSelect, MatOption, MatButton, MatInput, MatLabel, BackArrowComponent],
   templateUrl: './article-creation.component.html',
   styleUrl: './article-creation.component.scss',
   standalone: true
