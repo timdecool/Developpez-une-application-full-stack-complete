@@ -27,7 +27,9 @@ public class SubscriptionService {
     public void subscribe(Long themeId) {
         Theme theme = themeRepository.findById(themeId)
                 .orElseThrow(() -> new NoSuchElementException("Theme not found with id " + themeId));
-        User user = userRepository.findByEmail(AuthService.getCurrentUser());
+        User user = userRepository.findByEmail(AuthService.getCurrentUser()).orElseThrow(
+                () -> new NoSuchElementException("User not found with email " + AuthService.getCurrentUser())
+        );
 
         Subscription subscription = new Subscription();
         subscription.setUser(user);
@@ -36,7 +38,9 @@ public class SubscriptionService {
     }
 
     public void unsubscribe(Long themeId) {
-        User user = userRepository.findByEmail(AuthService.getCurrentUser());
+        User user = userRepository.findByEmail(AuthService.getCurrentUser()).orElseThrow(
+                () -> new NoSuchElementException("User not found with email " + AuthService.getCurrentUser())
+        );
         Theme theme = themeRepository.findById(themeId)
                 .orElseThrow(() -> new NoSuchElementException("Theme not found with id " + themeId));
 

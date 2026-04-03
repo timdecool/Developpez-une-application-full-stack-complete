@@ -42,16 +42,13 @@ export class ArticleDetailsComponent {
   })
 
   createComment() {
-    console.log("creating new comment");
     if (this.commentForm.invalid) return;
-    console.log(this.commentForm.value);
     this.commentService.createComment(
       {
         ...this.commentForm.value as CommentRequest,
         articleId: this.route.snapshot.params['id']
       }
     ).subscribe((response) => {
-      console.log("comment created")
       this.comments.update(comments => [...comments, response])
     })
   }
