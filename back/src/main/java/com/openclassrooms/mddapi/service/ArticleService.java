@@ -36,7 +36,9 @@ public class ArticleService {
                 () -> new NoSuchElementException("Theme not found with id " + dto.getThemeId())
         );
 
-        User user = userRepository.findByEmail(AuthService.getCurrentUser());
+        User user = userRepository.findByEmail(AuthService.getCurrentUser()).orElseThrow(
+                () -> new NoSuchElementException("User not found with email " + AuthService.getCurrentUser())
+        );
         Article article = articleMapper.toEntity(dto, theme, user);
         Article newArticle = articleRepository.save(article);
         return articleMapper.toDTO(newArticle);

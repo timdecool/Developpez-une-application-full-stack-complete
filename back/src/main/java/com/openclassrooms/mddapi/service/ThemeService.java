@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,7 +30,9 @@ public class ThemeService {
     public ThemeMapper themeMapper;
 
     public List<ThemeDTO> findAllThemes() {
-        User user = userRepository.findByEmail(AuthService.getCurrentUser());
+        User user = userRepository.findByEmail(AuthService.getCurrentUser()).orElseThrow(
+                () -> new NoSuchElementException("User not found with email " + AuthService.getCurrentUser())
+        );
 
         return themeRepository.findAll()
                 .stream()
@@ -44,7 +47,9 @@ public class ThemeService {
     }
 
     public List<ThemeDTO> findMyThemes() {
-        User user = userRepository.findByEmail(AuthService.getCurrentUser());
+        User user = userRepository.findByEmail(AuthService.getCurrentUser()).orElseThrow(
+                () -> new NoSuchElementException("User not found with email " + AuthService.getCurrentUser())
+        );
         return themeRepository.findSubscribedThemesByUserId(user.getId())
                 .stream()
                 .map(theme -> {

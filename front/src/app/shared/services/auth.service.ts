@@ -38,6 +38,15 @@ export class AuthService {
     );
   }
 
+  updateProfile(userRequest: UserRequest): Observable<AuthResponse> {
+    return this.api.put<AuthResponse>(`users/${this.user()?.id}`, userRequest).pipe(
+      tap(response => {
+        this.setToken(response.token);
+        this.user.set(response.user);
+      })
+    );
+  }
+
   logout() {
       this.removeToken();
       this.user.set(null);
@@ -51,9 +60,11 @@ export class AuthService {
     return localStorage.getItem(this.tokenKey);
   }
 
+  getUser(): User|null {
+    return this.user();
+  }
+
   removeToken() {
     localStorage.removeItem(this.tokenKey);
   }
-
-
 }

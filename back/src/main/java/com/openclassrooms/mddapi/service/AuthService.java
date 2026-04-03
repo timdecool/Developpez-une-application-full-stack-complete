@@ -20,6 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
+import java.util.NoSuchElementException;
 
 @Service
 public class AuthService {
@@ -54,6 +55,28 @@ public class AuthService {
         return generateToken(newUser.getEmail(), newUser.getPassword());
     }
 
+    public TokenDTO updateUserProfile(Long id, UserRequestDTO userDTO) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("User not found with id " + id));
+
+        User updatedUser = userMapper.toEntity(userDTO);
+        updatedUser.setId(user.getId());
+
+        if (updatedUser.getPassword() != null && !updatedUser.getPassword().isBlank()) {
+            updatedUser.setPassword(encoder.encode(updatedUser.getPassword()));
+        }
+        else {
+            updatedUser.setPassword(user.getPassword());
+        }
+
+        User savedUser = userRepository.save(updatedUser);
+
+        TokenDTO token = new TokenDTO();
+        token.setToken(jwtUtil.generateToken(savedUser.getEmail()));
+        token.setUser(userMapper.toDTO(savedUser));
+        return token;
+    }
+
     /**
      * Generates a token from given credentials using Authentication class from Spring Security.
      * @param login: user login
@@ -77,14 +100,18 @@ public class AuthService {
         TokenDTO token = new TokenDTO();
         token.setToken(jwtUtil.generateToken(userDetails.getUsername()));
 
-        User user = userRepository.findByEmail(userDetails.getUsername());
+        User user = userRepository.findByEmail(userDetails.getUsername()).orElseThrow(
+                () -> new NoSuchElementException("User not found with email " + userDetails.getUsername())
+        );
         token.setUser(userMapper.toDTO(user));
 
         return token;
     }
 
     public UserProfileDTO getCurrentUserDetails() {
-        User user = userRepository.findByEmail(getCurrentUser());
+        User user = userRepository.findByEmail(getCurrentUser()).orElseThrow(
+                () -> new NoSuchElementException("User not found with email " + getCurrentUser())
+        );
         return userMapper.toDTO(user);
     }
 
