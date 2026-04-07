@@ -1,8 +1,5 @@
 <header>
-  <div class="logo">
-    <img ngSrc="/assets/logo_p6.png" alt="logo" height="401" width="695" />
-  </div>
-
+  <app-logo size="sm" [hiddenLg]="false"/>
   @if(authService.getUser()) {
     <nav>
       <ul>

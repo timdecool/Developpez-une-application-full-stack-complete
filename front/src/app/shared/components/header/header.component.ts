@@ -2,12 +2,14 @@ import {Component, inject} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
+import {LogoComponent} from "../logo/logo.component";
 
 @Component({
   selector: 'app-header',
   imports: [
     NgOptimizedImage,
-    RouterLink
+    RouterLink,
+    LogoComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
 
 @Component({
   selector: 'app-main-container',
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   standalone: true
 })
 export class MainContainerComponent {
+  center = input<boolean>(true);
 
 }

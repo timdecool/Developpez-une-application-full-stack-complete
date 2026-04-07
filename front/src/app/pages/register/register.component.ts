@@ -7,6 +7,7 @@ import {AuthService} from "../../shared/services/auth.service";
 import {UserRequest} from "../../shared/models/UserRequest";
 import {BackArrowComponent} from "../../shared/components/back-arrow/back-arrow.component";
 import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
+import {LogoComponent} from "../../shared/components/logo/logo.component";
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ import {MainContainerComponent} from "../../shared/components/main-container/mai
     HeaderComponent,
     ReactiveFormsModule,
     MatFormField,
-    MatInput, MatLabel, MatButton, MatError, BackArrowComponent, MainContainerComponent
+    MatInput, MatLabel, MatButton, MatError, BackArrowComponent, MainContainerComponent, LogoComponent
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',

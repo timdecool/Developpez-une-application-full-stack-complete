@@ -6,19 +6,6 @@ header {
   justify-content: space-between;
 }
 
-.logo {
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: auto;
-}
-
 nav, ul {
   display: flex;
   gap: 10px;
@@ -28,11 +15,8 @@ ul {
   list-style-type: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
   header {
     padding: 0 5px;
-  }
-  .logo {
-    width: 100px;
   }
 }

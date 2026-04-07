@@ -1,50 +1,51 @@
 <app-header />
 <app-main-container>
   <app-back-arrow />
-  <h2>Inscription</h2>
+  <app-logo />
+
   <form [formGroup]="registerForm" (ngSubmit)="register()">
-
-      <mat-form-field>
-        <mat-label>Nom d'utilisateur</mat-label>
+    <h2>Inscription</h2>
+    <mat-form-field>
+      <mat-label>Nom d'utilisateur</mat-label>
         <input matInput formControlName="username" />
-        <mat-error>
-          @if(registerForm.controls.username.invalid) {
-            Il faut renseigner un nom d'utilisateur.
-          }
-        </mat-error>
-      </mat-form-field>
+      <mat-error>
+        @if(registerForm.controls.username.invalid) {
+          Il faut renseigner un nom d'utilisateur.
+        }
+      </mat-error>
+    </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Adresse email</mat-label>
+    <mat-form-field>
+      <mat-label>Adresse email</mat-label>
         <input matInput formControlName="email" />
-        <mat-error>
-          @if(registerForm.controls.email.invalid) {
-            @if(registerForm.controls.email.errors?.['required']) {
-              Il faut renseigner un email valide.
-            }
-            @if(registerForm.controls.email.errors?.['email']) {
-              Le format de l'email est invalide.
-            }
+      <mat-error>
+        @if(registerForm.controls.email.invalid) {
+          @if(registerForm.controls.email.errors?.['required']) {
+            Il faut renseigner un email valide.
           }
-        </mat-error>
-      </mat-form-field>
+          @if(registerForm.controls.email.errors?.['email']) {
+            Le format de l'email est invalide.
+          }
+        }
+      </mat-error>
+    </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Mot de passe</mat-label>
+    <mat-form-field>
+      <mat-label>Mot de passe</mat-label>
         <input matInput type="password" formControlName="password" />
-        <mat-error>
-          @if(registerForm.controls.password.invalid) {
-            @if(registerForm.controls.password.errors?.['minlength']) {
-              Le mot de passe doit contenir au moins 8 caractères.
-            }
+      <mat-error>
+        @if(registerForm.controls.password.invalid) {
+          @if(registerForm.controls.password.errors?.['minlength']) {
+            Le mot de passe doit contenir au moins 8 caractères.
           }
-        </mat-error>
-      </mat-form-field>
+        }
+      </mat-error>
+    </mat-form-field>
 
-      <button
-        matButton="filled"
-        color="primary"
-        [disabled]="registerForm.invalid"
-      >S'inscrire</button>
+    <button
+      matButton="filled"
+      color="primary"
+      [disabled]="registerForm.invalid"
+    >S'inscrire</button>
   </form>
 </app-main-container>
