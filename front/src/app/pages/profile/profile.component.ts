@@ -10,10 +10,12 @@ import {MatError, MatFormField, MatInput, MatLabel} from "@angular/material/inpu
 import {AuthRequest} from "../../shared/models/AuthRequest";
 import {UserRequest} from "../../shared/models/UserRequest";
 import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
+import {CardListComponent} from "../../shared/components/card-list/card-list.component";
+import {CardComponent} from "../../shared/components/card/card.component";
 
 @Component({
   selector: 'app-profile',
-  imports: [HeaderComponent, MatButton, MatCard, MatCardActions, MatCardContent, MatCardTitle, ReactiveFormsModule, MatFormField, MatInput, MatLabel, MainContainerComponent],
+  imports: [HeaderComponent, MatButton, MatCard, MatCardActions, MatCardContent, MatCardTitle, ReactiveFormsModule, MatFormField, MatInput, MatLabel, MainContainerComponent, CardListComponent, CardComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
   standalone: true

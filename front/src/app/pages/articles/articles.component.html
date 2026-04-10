@@ -1,16 +1,24 @@
 <app-header />
 
-<app-main-container>
-  <a matButton routerLink="/articles/new">Créer un article</a>
-  @for(article of articles(); track article.id) {
-    <mat-card (click)="readArticle(article.id)">
-      <mat-card-title>{{ article.title }}</mat-card-title>
-      <mat-card-subtitle>
-        {{ article.date | date:'longDate' }} - {{ article.author.username }}
-      </mat-card-subtitle>
-      <mat-card-content>
-        Description: {{article.content.substring(0, 50)}}{{article.content.length > 50 ? '...':''}}
-      </mat-card-content>
-    </mat-card>
-  }
+<app-main-container [center]="false">
+  <div class="articles-actions">
+    <a
+      matButton="filled"
+      color="primary"
+      routerLink="/articles/new"
+    >Créer un article</a>
+  </div>
+  <app-card-list>
+    @for(article of articles(); track article.id) {
+      <app-card [title]="article.title" (click)="readArticle(article.id)">
+        <span #subtitle slot="subtitle">
+          <p>{{ article.date | date:'longDate' }}</p>
+          <p>{{ article.author.username }}</p>
+        </span>
+        <p slot="content">
+          Description: {{article.content.substring(0, 150)}}{{article.content.length > 150 ? '...':''}}
+        </p>
+      </app-card>
+    }
+  </app-card-list>
 </app-main-container>

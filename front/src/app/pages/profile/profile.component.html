@@ -1,5 +1,5 @@
 <app-header />
-<app-main-container>
+<app-main-container [center]="false">
   <section>
     <h2>Profil utilisateur</h2>
     <form [formGroup]="profileForm" (ngSubmit)="updateUser()">
@@ -27,18 +27,21 @@
 
   <section>
     <h2>Abonnements</h2>
+    <app-card-list>
     @for(theme of themes(); track theme.id) {
-      <mat-card>
-        <mat-card-title>{{theme.name}}</mat-card-title>
-        <mat-card-content>
-          {{theme.description}}
-        </mat-card-content>
-        <mat-card-actions>
-          <button matButton (click)="unsubscribeTheme(theme.id)">
+      <app-card [title]="theme.name">
+        <p slot="content">
+          {{ theme.description }}
+        </p>
+        <span #actions slot="actions">
+          <button matButton="filled"
+                  color="primary"
+                  (click)="unsubscribeTheme(theme.id)">
             Se désabonner
           </button>
-        </mat-card-actions>
-      </mat-card>
+        </span>
+      </app-card>
     }
+    </app-card-list>
   </section>
 </app-main-container>

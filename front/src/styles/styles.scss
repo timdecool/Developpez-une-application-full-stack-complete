@@ -43,9 +43,19 @@ form {
   }
 }
 
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 :root {
   @include mat.form-field-overrides((
     filled-container-color: white,
+  ));
 
+  @include mat.card-overrides((
+      filled-container-color: #eaeaea,
   ));
 }

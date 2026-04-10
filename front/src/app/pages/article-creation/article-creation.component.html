@@ -1,7 +1,7 @@
 <app-header />
 <app-main-container>
   <app-back-arrow />
-   <h1>Créer un nouvel article</h1>
+   <h2>Créer un nouvel article</h2>
     <form [formGroup]="articleForm" (ngSubmit)="createArticle()">
       <mat-form-field>
         <mat-select formControlName="themeId">
@@ -19,6 +19,9 @@
         <mat-label>Contenu de l'article</mat-label>
         <textarea matInput formControlName="content"></textarea>
       </mat-form-field>
-      <button matButton>Créer</button>
+      <button
+        matButton="filled"
+        color="primary"
+      >Créer</button>
     </form>
 </app-main-container>

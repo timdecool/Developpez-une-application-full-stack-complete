@@ -1,0 +1,20 @@
+<mat-card appearance="filled" class="card">
+  <mat-card-header>
+    <mat-card-title>{{ title() }}</mat-card-title>
+    @if(hasSubtitle) {
+      <mat-card-subtitle class="card-metadata">
+        <ng-content select="[slot=subtitle]"></ng-content>
+      </mat-card-subtitle>
+    }
+  </mat-card-header>
+  <mat-card-content>
+    <ng-content select="[slot=content]"></ng-content>
+  </mat-card-content>
+  @if(hasActions) {
+    <mat-card-actions>
+      <div class="card-actions">
+        <ng-content select="[slot=actions]"></ng-content>
+      </div>
+    </mat-card-actions>
+  }
+</mat-card>
