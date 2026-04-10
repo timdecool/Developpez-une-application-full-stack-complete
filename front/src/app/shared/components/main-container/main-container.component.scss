@@ -10,6 +10,7 @@ main {
   padding: 30px;
   box-sizing: border-box;
   position: relative;
+  gap: 20px;
 
   @media(max-width: 762px) {
     padding: 10px;

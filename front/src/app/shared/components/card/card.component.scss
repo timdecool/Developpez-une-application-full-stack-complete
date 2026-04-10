@@ -1,5 +1,10 @@
 :host {
   flex: 1 1 400px;
+  max-width: 50%;
+
+  @media(max-width: 762px) {
+    max-width: 100%;
+  }
 }
 
 .card {
