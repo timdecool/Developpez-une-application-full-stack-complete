@@ -37,7 +37,6 @@ public class AuthService {
     private PasswordEncoder encoder;
 
     public TokenDTO login(@Valid LoginDTO login) {
-
         return generateToken(login.getLogin(), login.getPassword());
     }
 

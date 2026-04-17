@@ -23,7 +23,7 @@ export class LoginComponent {
   authService = inject(AuthService);
 
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    login: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   })
 
@@ -31,5 +31,4 @@ export class LoginComponent {
     if(this.loginForm.invalid) return;
     this.authService.login(this.loginForm.value as AuthRequest).subscribe();
   }
-
 }

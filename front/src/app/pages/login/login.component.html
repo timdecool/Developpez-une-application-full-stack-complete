@@ -6,15 +6,12 @@
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <h2>Se connecter</h2>
     <mat-form-field>
-      <mat-label>E-mail</mat-label>
-      <input matInput formControlName="email" />
+      <mat-label>E-mail ou nom d'utilisateur</mat-label>
+      <input matInput formControlName="login" />
       <mat-error>
-        @if(loginForm.controls.email.invalid) {
-          @if(loginForm.controls.email.errors?.['required']) {
-            Il faut renseigner un email valide.
-          }
-          @if(loginForm.controls.email.errors?.['email']) {
-            Le format de l'email est invalide.
+        @if(loginForm.controls.login.invalid) {
+          @if(loginForm.controls.login.errors?.['required']) {
+            Il faut renseigner un identifiant.
           }
         }
       </mat-error>
@@ -37,4 +34,4 @@
       [disabled]="loginForm.invalid"
     >Se connecter</button>
   </form>
-  </app-main-container>
+</app-main-container>

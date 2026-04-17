@@ -16,6 +16,7 @@ public class Article {
 
     private String title;
 
+    @Column(columnDefinition = "TEXT")
     private String content;
 
     @Column(name="created_at")
