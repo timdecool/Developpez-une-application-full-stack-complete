@@ -37,13 +37,9 @@ form:not(.no-max-width) {
     width: 100%;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 762px) {
     max-width: 100%;
   }
-}
-
-h1, h2, h3 {
-  margin-bottom: 0;
 }
 
 section {
