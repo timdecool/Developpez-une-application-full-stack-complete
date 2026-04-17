@@ -7,6 +7,20 @@
       color="primary"
       routerLink="/articles/new"
     >Créer un article</a>
+    <div class="order-articles">
+      <p>Trier par</p>
+        <button
+          mat-icon-button
+          (click)="sortArticles()"
+          [title]="sortDescending ? 'Du plus récent au plus ancien':'Du plus ancien au plus récent'"
+        >
+          @if(sortDescending) {
+              <mat-icon>arrow_downward_alt</mat-icon>
+          } @else {
+              <mat-icon>arrow_upward_alt</mat-icon>
+          }
+        </button>
+    </div>
   </div>
   <app-card-list>
     @for(article of articles(); track article.id) {
