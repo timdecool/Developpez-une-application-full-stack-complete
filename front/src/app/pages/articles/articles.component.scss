@@ -22,6 +22,7 @@
 
 .article-metadata {
   display: flex;
+  flex-wrap: wrap;
   p {
     flex: 1;
   }
