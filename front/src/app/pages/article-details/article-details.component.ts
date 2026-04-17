@@ -15,10 +15,11 @@ import {MainContainerComponent} from "../../shared/components/main-container/mai
 import {CardComponent} from "../../shared/components/card/card.component";
 import {MatIcon} from "@angular/material/icon";
 import {CdkTextareaAutosize} from "@angular/cdk/text-field";
+import {DividerComponent} from "../../shared/components/divider/divider.component";
 
 @Component({
   selector: 'app-article-details',
-  imports: [HeaderComponent, DatePipe, MatFormField, MatInput, ReactiveFormsModule, MatButton, BackArrowComponent, MainContainerComponent, CardComponent, MatIcon, MatIconButton, CdkTextareaAutosize],
+  imports: [HeaderComponent, DatePipe, MatFormField, MatInput, ReactiveFormsModule, MatButton, BackArrowComponent, MainContainerComponent, CardComponent, MatIcon, MatIconButton, CdkTextareaAutosize, DividerComponent],
   templateUrl: './article-details.component.html',
   styleUrl: './article-details.component.scss',
   standalone: true
