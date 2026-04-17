@@ -1,9 +1,12 @@
 <app-header />
 <app-main-container [center]="false">
-  <app-back-arrow />
+  <app-back-arrow class="hidden-sm" />
   <section class="article-section">
     @if(article(); as article) {
-      <h2>{{ article.title }}</h2>
+      <div class="title-section">
+        <app-back-arrow class="hidden-lg" [isStatic]="false" />
+        <h2>{{ article.title }}</h2>
+      </div>
       <div class="article-data">
         <p>{{ article.date | date:'longDate'}}</p>
         <p>{{ article.author.username }}</p>

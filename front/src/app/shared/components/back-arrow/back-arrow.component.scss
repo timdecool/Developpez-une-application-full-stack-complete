@@ -1,7 +1,14 @@
 :host {
-  position: absolute;
-  left: 20px;
-  top: 20px;
+  &.static {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+
+    @media(max-width: 762px) {
+      left: 10px;
+      top: 10px;
+    }
+  }
 }
 
 button {
