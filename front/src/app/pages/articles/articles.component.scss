@@ -1,0 +1,16 @@
+.article-actions {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  @media(max-width: 762px) {
+    margin-bottom: 0;
+  }
+}
+
+.article-metadata {
+  display: flex;
+  p {
+    flex: 1;
+  }
+}

@@ -1,9 +1,7 @@
-<div class="center">
-  <div class="logo">
-    <img ngSrc="/assets/logo_p6.png" alt="logo" height="401" width="695" />
-  </div>
-  <div class="flex">
-    <a routerLink="/login" matButton="outlined" color="primary">Se connecter</a>
-    <a routerLink="/register" matButton="outlined" color="primary">S'inscrire</a>
-  </div>
-</div>
+<app-main-container>
+    <app-logo [hiddenLg]="false" />
+    <div class="buttons">
+      <a routerLink="/login" matButton="outlined">Se connecter</a>
+      <a routerLink="/register" matButton="outlined">S'inscrire</a>
+    </div>
+</app-main-container>

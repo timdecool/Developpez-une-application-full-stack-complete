@@ -9,11 +9,17 @@ import {CommentService} from "../../shared/services/comment.service";
 import {MatFormField, MatInput} from "@angular/material/input";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {CommentRequest} from "../../shared/models/CommentRequest";
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatIconButton} from "@angular/material/button";
+import {BackArrowComponent} from "../../shared/components/back-arrow/back-arrow.component";
+import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
+import {CardComponent} from "../../shared/components/card/card.component";
+import {MatIcon} from "@angular/material/icon";
+import {CdkTextareaAutosize} from "@angular/cdk/text-field";
+import {DividerComponent} from "../../shared/components/divider/divider.component";
 
 @Component({
   selector: 'app-article-details',
-  imports: [HeaderComponent, DatePipe, MatFormField, MatInput, ReactiveFormsModule, MatButton],
+  imports: [HeaderComponent, DatePipe, MatFormField, MatInput, ReactiveFormsModule, MatButton, BackArrowComponent, MainContainerComponent, CardComponent, MatIcon, MatIconButton, CdkTextareaAutosize, DividerComponent],
   templateUrl: './article-details.component.html',
   styleUrl: './article-details.component.scss',
   standalone: true
@@ -50,6 +56,7 @@ export class ArticleDetailsComponent {
       }
     ).subscribe((response) => {
       this.comments.update(comments => [...comments, response])
+      this.commentForm.reset()
     })
   }
 }

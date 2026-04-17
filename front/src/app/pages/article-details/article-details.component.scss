@@ -1,0 +1,64 @@
+.article-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding-left: 40px;
+
+  @media(max-width: 762px) {
+    padding-left: 0;
+  }
+
+  .title-area {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .article-data {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #737373;
+  }
+}
+
+.comments-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .comment {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+
+    @media(max-width: 762px) {
+      flex-direction: column;
+      gap: 0;
+      p {
+        align-self: flex-end;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .comment-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+
+    mat-form-field {
+      flex: 1;
+    }
+
+    button mat-icon {
+      transform: rotate(-45deg);
+    }
+  }
+}

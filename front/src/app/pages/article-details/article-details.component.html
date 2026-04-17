@@ -1,33 +1,47 @@
 <app-header />
-<main>
-  @if(article(); as article) {
-    <h1>{{ article.title }}</h1>
-    <div>
-      <p>{{ article.date | date:'longDate'}}</p>
-      <p>{{ article.author.username }}</p>
-      <p>{{ article.theme.name }}</p>
-    </div>
-    <div>
-      {{ article.content }}
-    </div>
-  }
-
-  <h2>Commentaires</h2>
-  @for(comment of comments(); track comment.id) {
-    <div>
-      <p>{{ comment.author.username }}</p>
-      <div>
-        {{ comment.content }}
+<app-main-container [center]="false">
+  <app-back-arrow class="hidden-sm" />
+  <section class="article-section">
+    @if(article(); as article) {
+      <div class="title-area">
+        <app-back-arrow class="hidden-lg" [isStatic]="false" />
+        <h2>{{ article.title }}</h2>
       </div>
-    </div>
-  }
-
-  <div>
-    <form [formGroup]="commentForm" (ngSubmit)="createComment()">
-      <mat-form-field>
-        <textarea matInput formControlName="content"></textarea>
+      <div class="article-data">
+        <p>{{ article.date | date:'longDate'}}</p>
+        <p>{{ article.author.username }}</p>
+        <p>{{ article.theme.name }}</p>
+      </div>
+      <div>
+        {{ article.content }}
+      </div>
+    }
+  </section>
+  <app-divider />
+  <section class="comments-section">
+    <h3>Commentaires</h3>
+    @for(comment of comments(); track comment.id) {
+      <div class="comment">
+        <p>{{ comment.author.username }}</p>
+        <app-card>
+          <p slot="content">
+            {{ comment.content }}
+          </p>
+        </app-card>
+      </div>
+    }
+    <form [formGroup]="commentForm" (ngSubmit)="createComment()" class="comment-form no-max-width">
+      <mat-form-field subscriptSizing="dynamic">
+        <textarea
+            matInput
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="2"
+            formControlName="content"
+            placeholder="Écrivez ici votre commentaire"></textarea>
       </mat-form-field>
-      <button matButton>Envoyer</button>
+      <button mat-icon-button type="submit">
+        <mat-icon aria-hidden="false" aria-label="Send comment" fontIcon="send" class="icon" color="primary"></mat-icon>
+      </button>
     </form>
-  </div>
-</main>
+  </section>
+</app-main-container>

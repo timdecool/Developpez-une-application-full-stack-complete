@@ -5,10 +5,15 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {AuthRequest} from "../../shared/models/AuthRequest";
 import {MatButton} from "@angular/material/button";
 import {MatError, MatFormField, MatInput, MatLabel} from "@angular/material/input";
+import {BackArrowComponent} from "../../shared/components/back-arrow/back-arrow.component";
+import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
+import {FormContainerComponent} from "../../shared/components/form-container/form-container.component";
+import {NgOptimizedImage} from "@angular/common";
+import {LogoComponent} from "../../shared/components/logo/logo.component";
 
 @Component({
   selector: 'app-login',
-  imports: [HeaderComponent, FormsModule, MatButton, MatError, MatFormField, MatInput, MatLabel, ReactiveFormsModule],
+  imports: [HeaderComponent, FormsModule, MatButton, MatError, MatFormField, MatInput, MatLabel, ReactiveFormsModule, BackArrowComponent, MainContainerComponent, NgOptimizedImage, LogoComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   standalone: true
