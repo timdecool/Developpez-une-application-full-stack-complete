@@ -5,23 +5,14 @@
 
 .card {
   cursor: pointer;
-  mat-card-header .mat-mdc-card-header-data {
+  .title-area {
+    text-wrap: wrap;
+    word-break: break-all;
+  }
+
+  .card-actions {
+    display: flex;
     width: 100%;
-    flex-direction: column;
+    justify-content: center;
   }
-}
-
-.card-metadata {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  p {
-    flex: 1;
-  }
-}
-
-.card-actions {
-  display: flex;
-  width: 100%;
-  justify-content: center;
 }
