@@ -14,7 +14,6 @@ public class LoginDTO {
 
     @NotNull(message="Login is required")
     @NotBlank(message="Login cannot be blank")
-    @JsonProperty("email")
     private String login;
 
     @NotNull(message="Password is required")
