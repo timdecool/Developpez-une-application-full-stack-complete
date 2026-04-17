@@ -1,35 +1,45 @@
 <app-header />
-<app-main-container>
+<app-main-container [center]="false">
   <app-back-arrow />
-  @if(article(); as article) {
-    <h1>{{ article.title }}</h1>
-    <div>
-      <p>{{ article.date | date:'longDate'}}</p>
-      <p>{{ article.author.username }}</p>
-      <p>{{ article.theme.name }}</p>
-    </div>
-    <div>
-      {{ article.content }}
-    </div>
-  }
-
-  <h2>Commentaires</h2>
-  @for(comment of comments(); track comment.id) {
-    <div>
-      <p>{{ comment.author.username }}</p>
-      <div>
-        {{ comment.content }}
+  <section class="article-section">
+    @if(article(); as article) {
+      <h2>{{ article.title }}</h2>
+      <div class="article-data">
+        <p>{{ article.date | date:'longDate'}}</p>
+        <p>{{ article.author.username }}</p>
+        <p>{{ article.theme.name }}</p>
       </div>
+      <div>
+        {{ article.content }}
+      </div>
+    }
+  </section>
+  <section class="comments-section">
+    <h3>Commentaires</h3>
+    @for(comment of comments(); track comment.id) {
+      <div class="comment">
+        <p>{{ comment.author.username }}</p>
+        <app-card>
+          <p slot="content">
+            {{ comment.content }}
+          </p>
+        </app-card>
+      </div>
+    }
+    <div>
+      <form [formGroup]="commentForm" (ngSubmit)="createComment()" class="comment-form">
+        <mat-form-field>
+          <textarea
+            matInput
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="2"
+            class="comment-text"
+            formControlName="content"></textarea>
+        </mat-form-field>
+        <button mat-icon-button type="submit">
+          <mat-icon aria-hidden="false" aria-label="Send comment" fontIcon="send" class="icon" color="primary"></mat-icon>
+        </button>
+      </form>
     </div>
-  }
-
-  <div>
-    <form [formGroup]="commentForm" (ngSubmit)="createComment()">
-      <mat-form-field>
-        <textarea matInput formControlName="content"></textarea>
-      </mat-form-field>
-      <button matButton>Envoyer</button>
-    </form>
-  </div>
+  </section>
 </app-main-container>
-

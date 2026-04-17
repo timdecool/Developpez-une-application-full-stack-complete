@@ -1,6 +1,8 @@
 <mat-card appearance="filled" class="card">
   <mat-card-header>
-    <mat-card-title>{{ title() }}</mat-card-title>
+    @if(title()) {
+      <mat-card-title>{{ title() }}</mat-card-title>
+    }
     @if(hasSubtitle) {
       <mat-card-subtitle class="card-metadata">
         <ng-content select="[slot=subtitle]"></ng-content>

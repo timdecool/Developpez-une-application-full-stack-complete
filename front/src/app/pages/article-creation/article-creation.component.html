@@ -17,7 +17,13 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Contenu de l'article</mat-label>
-        <textarea matInput formControlName="content"></textarea>
+        <textarea
+          matInput
+          formControlName="content"
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="10"
+        >
+        </textarea>
       </mat-form-field>
       <button
         matButton="filled"

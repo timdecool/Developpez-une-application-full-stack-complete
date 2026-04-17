@@ -2,4 +2,8 @@
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+
+  @media(max-width: 762px) {
+    margin-bottom: 0;
+  }
 }

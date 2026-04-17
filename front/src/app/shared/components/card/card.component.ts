@@ -23,7 +23,8 @@ import {
   standalone: true
 })
 export class CardComponent {
-  title = input.required<string>();
+  fullWidth = input<boolean>(false);
+  title = input<string|null>(null);
 
   @ContentChild('subtitle') subtitleRef?: ElementRef;
   @ContentChild('actions') actionsRef?: ElementRef;
