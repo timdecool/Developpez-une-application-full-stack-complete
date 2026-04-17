@@ -1,5 +1,5 @@
 <mat-card appearance="filled" class="card">
-  <mat-card-header>
+  <mat-card-content>
     @if(title()) {
       <mat-card-title class="title-area">{{ title() }}</mat-card-title>
     }
@@ -8,8 +8,6 @@
         <ng-content select="[slot=subtitle]"></ng-content>
       </mat-card-subtitle>
     }
-  </mat-card-header>
-  <mat-card-content>
     <ng-content select="[slot=content]"></ng-content>
   </mat-card-content>
   @if(hasActions) {
