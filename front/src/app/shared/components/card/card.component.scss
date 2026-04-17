@@ -1,21 +1,14 @@
 :host {
-  flex: 1 1 400px;
-  max-width: 100%;
-}
-
-:host(.full-width) {
+  flex: 1;
   max-width: 100%;
 }
 
 .card {
+  cursor: pointer;
   mat-card-header .mat-mdc-card-header-data {
     width: 100%;
     flex-direction: column;
   }
-}
-
-.card:hover {
-  cursor: pointer;
 }
 
 .card-metadata {

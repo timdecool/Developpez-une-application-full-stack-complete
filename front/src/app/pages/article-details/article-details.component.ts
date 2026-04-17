@@ -56,6 +56,7 @@ export class ArticleDetailsComponent {
       }
     ).subscribe((response) => {
       this.comments.update(comments => [...comments, response])
+      this.commentForm.reset()
     })
   }
 }
