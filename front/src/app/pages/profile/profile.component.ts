@@ -5,7 +5,7 @@ import {ThemeService} from "../../shared/services/theme.service";
 import {Theme} from "../../shared/models/Theme";
 import {AuthService} from "../../shared/services/auth.service";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
+import {MatError, MatFormField, MatInput, MatLabel} from "@angular/material/input";
 import {UserRequest} from "../../shared/models/UserRequest";
 import {MainContainerComponent} from "../../shared/components/main-container/main-container.component";
 import {CardListComponent} from "../../shared/components/card-list/card-list.component";
@@ -14,7 +14,7 @@ import {DividerComponent} from "../../shared/components/divider/divider.componen
 
 @Component({
   selector: 'app-profile',
-  imports: [HeaderComponent, MatButton, ReactiveFormsModule, MatFormField, MatInput, MatLabel, MainContainerComponent, CardListComponent, CardComponent, DividerComponent],
+  imports: [HeaderComponent, MatButton, ReactiveFormsModule, MatFormField, MatInput, MatLabel, MainContainerComponent, CardListComponent, CardComponent, DividerComponent, MatError],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
   standalone: true

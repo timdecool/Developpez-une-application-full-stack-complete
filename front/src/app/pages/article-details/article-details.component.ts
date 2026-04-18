@@ -44,11 +44,11 @@ export class ArticleDetailsComponent {
   }
 
   commentForm = new FormGroup({
-    content: new FormControl('', Validators.required)
+    content: new FormControl('')
   })
 
   createComment() {
-    if (this.commentForm.invalid) return;
+    if (!this.commentForm.value.content) return;
     this.commentService.createComment(
       {
         ...this.commentForm.value as CommentRequest,

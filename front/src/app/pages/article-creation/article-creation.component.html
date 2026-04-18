@@ -14,6 +14,13 @@
       <mat-form-field>
         <mat-label>Titre de l'article</mat-label>
         <input matInput formControlName="title">
+        <mat-error>
+          @if(articleForm.controls.title.invalid) {
+            @if(articleForm.controls.title.errors?.['required']) {
+              Il faut renseigner un titre.
+            }
+          }
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Contenu de l'article</mat-label>
@@ -24,10 +31,18 @@
           cdkAutosizeMinRows="10"
         >
         </textarea>
+        <mat-error>
+          @if(articleForm.controls.content.invalid) {
+            @if(articleForm.controls.content.errors?.['required']) {
+              Il faut renseigner un contenu pour l'article.
+            }
+          }
+        </mat-error>
       </mat-form-field>
       <button
         matButton="filled"
         color="primary"
+        [disabled]="articleForm.invalid"
       >Créer</button>
     </form>
 </app-main-container>

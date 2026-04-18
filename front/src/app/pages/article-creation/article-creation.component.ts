@@ -4,7 +4,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {ArticleService} from "../../shared/services/article.service";
 import {ArticleRequest} from "../../shared/models/ArticleRequest";
 import {Router} from "@angular/router";
-import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
+import {MatError, MatFormField, MatInput, MatLabel} from "@angular/material/input";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {Theme} from "../../shared/models/Theme";
 import {ThemeService} from "../../shared/services/theme.service";
@@ -15,7 +15,7 @@ import {CdkTextareaAutosize} from "@angular/cdk/text-field";
 
 @Component({
   selector: 'app-article-creation',
-  imports: [HeaderComponent, ReactiveFormsModule, MatFormField, MatSelect, MatOption, MatButton, MatInput, MatLabel, BackArrowComponent, MainContainerComponent, CdkTextareaAutosize],
+  imports: [HeaderComponent, ReactiveFormsModule, MatFormField, MatSelect, MatOption, MatButton, MatInput, MatLabel, BackArrowComponent, MainContainerComponent, CdkTextareaAutosize, MatError],
   templateUrl: './article-creation.component.html',
   styleUrl: './article-creation.component.scss',
   standalone: true

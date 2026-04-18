@@ -11,11 +11,31 @@
       <mat-form-field>
         <mat-label>Adresse email</mat-label>
         <input matInput formControlName="email" />
+        <mat-error>
+          @if(profileForm.controls.email.invalid) {
+            @if(profileForm.controls.email.errors?.['required']) {
+              Il faut renseigner un email valide.
+            }
+            @if(profileForm.controls.email.errors?.['email']) {
+              Le format de l'email est invalide.
+            }
+          }
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Mot de passe</mat-label>
         <input matInput type="password" formControlName="password" />
+        <mat-error>
+          @if(profileForm.controls.password.invalid) {
+            @if(profileForm.controls.password.errors?.['minlength']) {
+              Le mot de passe doit contenir au moins 8 caractères.
+            }
+            @else if(profileForm.controls.password.errors?.['pattern']) {
+              Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.
+            }
+          }
+        </mat-error>
       </mat-form-field>
 
       <button
