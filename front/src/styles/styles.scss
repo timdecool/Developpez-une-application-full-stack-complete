@@ -1,5 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
+@use 'variables' as *;
+
+:root {
+  --color-primary: #673ab7;
+  --color-error: #920000;
+  --color-secondary: #b1b1b1;
+  --color-text-light: #737373;
+
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+
+  @include mat.form-field-overrides((
+    filled-container-color: white,
+  ));
+
+  @include mat.card-overrides((
+    filled-container-color: #eaeaea,
+  ));
+}
 
 html, body {
   margin: 0;
@@ -28,16 +48,14 @@ form:not(.no-max-width) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: var(--spacing-sm);
   width: 100%;
   max-width: 700px;
-
 
   mat-form-field {
     width: 100%;
   }
-
-  @media (max-width: 762px) {
+  @media (max-width: $breakpoint-sm) {
     max-width: 100%;
   }
 }
@@ -51,24 +69,14 @@ section {
 
 .hidden-sm {
   display: block;
-  @media(max-width: 762px) {
+  @media(max-width: $breakpoint-sm) {
     display: none;
   }
 }
 
 .hidden-lg {
   display: none;
-  @media(max-width: 762px) {
+  @media(max-width: $breakpoint-sm) {
     display: block;
   }
-}
-
-:root {
-  @include mat.form-field-overrides((
-    filled-container-color: white,
-  ));
-
-  @include mat.card-overrides((
-      filled-container-color: #eaeaea,
-  ));
 }
