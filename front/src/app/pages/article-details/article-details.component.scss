@@ -1,42 +1,47 @@
+@use '../../../styles/_variables' as *;
+
 .article-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
-  padding-left: 40px;
+  gap: var(--spacing-sm);
+  padding-left: var(--spacing-lg);
+  box-sizing: border-box;
 
-  @media(max-width: 762px) {
+  @media(max-width: $breakpoint-sm) {
     padding-left: 0;
   }
 
   .title-area {
     width: 100%;
-    height: 50px;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    gap: var(--spacing-sm);
   }
 
   .article-data {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    color: #737373;
+    gap: var(--spacing-md);
+    color: var(--color-text-light);
+  }
+
+  .article-content {
+    text-align: justify;
   }
 }
 
 .comments-section {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: var(--spacing-md);
 
   .comment {
     width: 100%;
     display: flex;
-    gap: 10px;
+    gap: var(--spacing-sm);
 
-    @media(max-width: 762px) {
+    @media(max-width: $breakpoint-sm) {
       flex-direction: column;
       gap: 0;
       p {
@@ -50,7 +55,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: var(--spacing-sm);
     width: 100%;
 
     mat-form-field {

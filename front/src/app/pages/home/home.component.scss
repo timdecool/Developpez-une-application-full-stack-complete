@@ -1,6 +1,8 @@
+@use '../../../styles/_variables' as *;
+
 .buttons {
   display: flex;
-  gap: 30px;
+  gap: var(--spacing-lg);
   justify-content: space-around;
 
   a {
@@ -8,13 +10,13 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $breakpoint-sm) {
   .buttons {
     flex-direction: column;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 var(--spacing-md);
     box-sizing: border-box;
-    gap: 20px;
+    gap: var(--spacing-md);
 
     a {
       width: 100%;

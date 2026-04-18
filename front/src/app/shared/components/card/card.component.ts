@@ -3,7 +3,6 @@ import {
   MatCard,
   MatCardActions,
   MatCardContent,
-  MatCardHeader,
   MatCardSubtitle,
   MatCardTitle
 } from "@angular/material/card";
@@ -12,7 +11,6 @@ import {
   selector: 'app-card',
   imports: [
     MatCard,
-    MatCardHeader,
     MatCardContent,
     MatCardActions,
     MatCardTitle,

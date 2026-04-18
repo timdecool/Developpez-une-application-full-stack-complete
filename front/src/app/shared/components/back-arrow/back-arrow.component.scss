@@ -1,23 +1,18 @@
+@use '../../../../styles/_variables' as *;
+
 :host {
   &.static {
     position: absolute;
-    left: 20px;
-    top: 20px;
+    left: var(--spacing-md);
+    top: var(--spacing-md);
 
-    @media(max-width: 762px) {
-      left: 10px;
-      top: 10px;
+    @media(max-width: $breakpoint-sm) {
+      left: var(--spacing-sm);
+      top: var(--spacing-sm);
     }
   }
 }
 
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-}
-
 .icon {
-  transform: scale(1.6);
+  transform: scale(1.5);
 }
