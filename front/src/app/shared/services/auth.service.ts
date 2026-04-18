@@ -1,6 +1,6 @@
 import {inject, Injectable, signal} from '@angular/core';
 import {ApiService} from "./api.service";
-import {catchError, Observable, tap} from "rxjs";
+import {catchError, EMPTY, Observable, tap} from "rxjs";
 import {AuthResponse} from "../models/AuthResponse";
 import {UserRequest} from "../models/UserRequest";
 import {User} from "../models/User";
@@ -45,6 +45,19 @@ export class AuthService {
         this.user.set(response.user);
       })
     );
+  }
+
+  loadUserFromToken(): Observable<User> {
+    return this.api.get<User>('auth/me').pipe(
+      tap(response => {
+        this.user.set(response);
+      }),
+      catchError(() => {
+        this.removeToken();
+        this.router.navigate(['/']);
+        return EMPTY;
+      })
+    )
   }
 
   logout() {
