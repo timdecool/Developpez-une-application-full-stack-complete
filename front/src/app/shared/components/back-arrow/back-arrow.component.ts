@@ -1,11 +1,13 @@
 import {Component, HostBinding, inject, input} from '@angular/core';
 import {Location} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
+import {MatIconButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-back-arrow',
   imports: [
-    MatIcon
+    MatIcon,
+    MatIconButton
   ],
   templateUrl: './back-arrow.component.html',
   styleUrl: './back-arrow.component.scss',

@@ -24,10 +24,3 @@
     box-sizing: border-box;
   }
 }
-
-.hidden-lg {
-  display: none;
-  @media(max-width: 762px) {
-    display: block;
-  }
-}

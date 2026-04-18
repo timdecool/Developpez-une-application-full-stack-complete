@@ -30,7 +30,7 @@
           <p>{{ article.author.username }}</p>
         </div>
         <p slot="content">
-          {{article.content.substring(0, 150)}}{{article.content.length > 150 ? '...':''}}
+          {{article.content.substring(0, 200)}}{{article.content.length > 200 ? '...':''}}
         </p>
       </app-card>
     }
