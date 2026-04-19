@@ -15,6 +15,10 @@ import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
+/**
+ * Utility component handling JSON Web Token operations, handling token generation, parsing and validation.
+ * Secret key and expiration duration are loaded from application properties.
+ */
 @Component
 @Slf4j
 public class JwtUtil {
@@ -27,20 +31,36 @@ public class JwtUtil {
 
     private SecretKey key;
 
+    /**
+     * Initializes the HMAC-SHA signing key from the configured secret.
+     * Executed once after dependency injection.
+     */
     @PostConstruct
     public void init() {
         this.key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
     }
 
-    public String generateToken(String username) {
+    /**
+     * Generates a signed JWT token for the given email.
+     *
+     * @param email the subject to embed in the token
+     * @return a signed JWT token string
+     */
+    public String generateToken(String email) {
         return Jwts.builder()
-                .subject(username)
+                .subject(email)
                 .issuedAt(new Date())
                 .expiration(new Date(new Date().getTime() + jwtExpirationMs))
                 .signWith(key)
                 .compact();
     }
 
+    /**
+     * Extracts the subject (email) from a JWT token.
+     *
+     * @param token the JWT token string
+     * @return the subject (email) embedded in the token
+     */
     public String getUserFromToken(String token) {
         return Jwts.parser().verifyWith(key).build()
                 .parseSignedClaims(token)
@@ -48,6 +68,12 @@ public class JwtUtil {
                 .getSubject();
     }
 
+    /**
+     * Validates a JWT token by verifying its signature and expiration.
+     *
+     * @param token the JWT token string to validate
+     * @return true if the token is valid, false otherwise
+     */
     public boolean validateJwtToken(String token) {
         try {
             Jwts.parser().verifyWith(key).build().parseSignedClaims(token);

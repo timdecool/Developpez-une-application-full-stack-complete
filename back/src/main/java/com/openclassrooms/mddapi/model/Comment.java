@@ -5,6 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * Represents a comment posted by a user on a specific article.
+ */
 @Data
 @Entity
 @Table(name = "comments")

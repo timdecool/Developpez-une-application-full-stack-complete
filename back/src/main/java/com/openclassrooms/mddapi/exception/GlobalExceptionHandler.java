@@ -1,7 +1,3 @@
-/**
- * Class handling various exceptions that may occur in the application and returning appropriate responses to the client.
- */
-
 package com.openclassrooms.mddapi.exception;
 
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -14,6 +10,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
+/**
+ * Handler that returns a ResponseEntity for each error case
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

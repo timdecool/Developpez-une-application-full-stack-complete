@@ -1,12 +1,14 @@
 package com.openclassrooms.mddapi.model;
 
 import lombok.Data;
-import net.bytebuddy.asm.Advice;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Represents a user with its credentials.
+ */
 @Data
 @Entity
 @Table(name = "users")

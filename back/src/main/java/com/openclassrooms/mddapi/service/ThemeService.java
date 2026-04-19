@@ -6,7 +6,6 @@ import com.openclassrooms.mddapi.model.User;
 import com.openclassrooms.mddapi.repository.SubscriptionRepository;
 import com.openclassrooms.mddapi.repository.ThemeRepository;
 import com.openclassrooms.mddapi.repository.UserRepository;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +13,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
+/**
+ * Service handling business logic for theme management.
+ * Provides operations for retrieving themes.
+ */
 @Service
 public class ThemeService {
 
@@ -29,6 +32,12 @@ public class ThemeService {
     @Autowired
     public ThemeMapper themeMapper;
 
+    /**
+     * Retrieves all themes while checking for authenticated user subscription status for each of them.
+     *
+     * @return a list of themes as data transfer objects ThemeDTO
+     * @throws NoSuchElementException if user is not found
+     */
     public List<ThemeDTO> findAllThemes() {
         User user = userRepository.findByEmail(AuthService.getCurrentUser()).orElseThrow(
                 () -> new NoSuchElementException("User not found with email " + AuthService.getCurrentUser())
@@ -46,6 +55,12 @@ public class ThemeService {
                 }).collect(Collectors.toList());
     }
 
+    /**
+     * Retrieves all the authenticated user subscribed themes.
+     *
+     * @return a list of themes as data transfer objects ThemeDTO
+     * @throws NoSuchElementException if user is not found
+     */
     public List<ThemeDTO> findMyThemes() {
         User user = userRepository.findByEmail(AuthService.getCurrentUser()).orElseThrow(
                 () -> new NoSuchElementException("User not found with email " + AuthService.getCurrentUser())

@@ -22,6 +22,10 @@ import org.springframework.stereotype.Service;
 import javax.validation.Valid;
 import java.util.NoSuchElementException;
 
+/**
+ * Service handling authentication logic and token generation.
+ * Provides operations for registering an account, logging and retrieving user details.
+ */
 @Service
 public class AuthService {
     @Autowired
@@ -36,10 +40,23 @@ public class AuthService {
     @Autowired
     private PasswordEncoder encoder;
 
+    /**
+     * Generates a token based on given credentials.
+     *
+     * @param login user credentials as data transfer object LoginDTO
+     * @return user token and data as data transfer object TokenDTO
+     */
     public TokenDTO login(@Valid LoginDTO login) {
         return generateToken(login.getLogin(), login.getPassword());
     }
 
+    /**
+     * Creates a user account and generates a token based on account data.
+     *
+     * @param newUser user data as data transfer object UserRequestDTO containing username, email and password.
+     * @return user token and data as data transfer object TokenDTO
+     * @throws NotUniqueException if given username or email is already associated to an account.
+     */
     public TokenDTO register(@Valid UserRequestDTO newUser)  {
         if (userRepository.existsByUsername(newUser.getUsername())) {
             throw new NotUniqueException("Username already exists");
@@ -54,7 +71,15 @@ public class AuthService {
         return generateToken(newUser.getEmail(), newUser.getPassword());
     }
 
-    public TokenDTO updateUserProfile(Long id, UserRequestDTO userDTO) {
+    /**
+     * Updates a user account and generates a token based on account data.
+     *
+     * @param id the user account identifier
+     * @param userDTO user account data as data transfer object UserRequestDTO
+     * @return user token and data as data transfer object TokenDTO
+     * @throws NoSuchElementException if user is not found
+     */
+    public TokenDTO updateUser(Long id, UserRequestDTO userDTO) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("User not found with id " + id));
 
@@ -80,7 +105,9 @@ public class AuthService {
      * Generates a token from given credentials using Authentication class from Spring Security.
      * @param login: user login
      * @param password: user password
-     * @return TokenDTO
+     * @return user token and data as data transfer object TokenDTO
+     * @throws InvalidCredentialsException if login and password do not match
+     * @throws NoSuchElementException if user is not found based on its email
      */
     public TokenDTO generateToken(String login, String password) {
         Authentication authentication;
@@ -107,6 +134,11 @@ public class AuthService {
         return token;
     }
 
+    /**
+     * Retrieves user data based on authenticated user email
+     * @return user data as data transfer object UserProfileDTO
+     * @throws NoSuchElementException if user is not found
+     */
     public UserProfileDTO getCurrentUserDetails() {
         User user = userRepository.findByEmail(getCurrentUser()).orElseThrow(
                 () -> new NoSuchElementException("User not found with email " + getCurrentUser())
@@ -114,6 +146,10 @@ public class AuthService {
         return userMapper.toDTO(user);
     }
 
+    /**
+     * Retrieves user email based on token attached to the currently handled request.
+     * @return user email
+     */
     public static String getCurrentUser() {
         return SecurityContextHolder.getContext().getAuthentication().getName();
     }

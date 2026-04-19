@@ -5,6 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * Represents a subscription of a specific theme by a user.
+ */
 @Data
 @Entity
 @Table(

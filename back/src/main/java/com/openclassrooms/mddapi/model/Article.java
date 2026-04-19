@@ -5,6 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * Represents an article posted by a user on a specific theme.
+ */
 @Data
 @Entity
 @Table(name = "articles")

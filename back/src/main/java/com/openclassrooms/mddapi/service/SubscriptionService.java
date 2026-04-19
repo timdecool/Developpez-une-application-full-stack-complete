@@ -1,6 +1,5 @@
 package com.openclassrooms.mddapi.service;
 
-import com.openclassrooms.mddapi.dto.UserProfileDTO;
 import com.openclassrooms.mddapi.model.Subscription;
 import com.openclassrooms.mddapi.model.Theme;
 import com.openclassrooms.mddapi.model.User;
@@ -12,6 +11,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
 
+/**
+ * Service handling business logic for theme subscription.
+ * Provides operations for subscribing and unsubscribing to a theme.
+ */
 @Service
 public class SubscriptionService {
 
@@ -24,6 +27,12 @@ public class SubscriptionService {
     @Autowired
     private ThemeRepository themeRepository;
 
+    /**
+     * Creates a subscription with authenticated user id and given theme.
+     *
+     * @param themeId theme identifier
+     * @throws NoSuchElementException if theme or user is not found
+     */
     public void subscribe(Long themeId) {
         Theme theme = themeRepository.findById(themeId)
                 .orElseThrow(() -> new NoSuchElementException("Theme not found with id " + themeId));
@@ -37,6 +46,11 @@ public class SubscriptionService {
         subscriptionRepository.save(subscription);
     }
 
+    /**
+     * Deletes a subscription with authenticated user id and given theme.
+     * @param themeId theme identifier
+     * @throws NoSuchElementException if user, theme or subscription is not found
+     */
     public void unsubscribe(Long themeId) {
         User user = userRepository.findByEmail(AuthService.getCurrentUser()).orElseThrow(
                 () -> new NoSuchElementException("User not found with email " + AuthService.getCurrentUser())
@@ -48,5 +62,4 @@ public class SubscriptionService {
                 .orElseThrow(() -> new NoSuchElementException("Subscription not found"));
         subscriptionRepository.delete(subscription);
     }
-
 }

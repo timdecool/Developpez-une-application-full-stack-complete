@@ -5,6 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * Represents a subscribable theme.
+ */
 @Data
 @Entity
 @Table(name = "themes")
