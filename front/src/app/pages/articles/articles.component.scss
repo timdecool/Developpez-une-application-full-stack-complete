@@ -1,0 +1,31 @@
+@use '../../../styles/_variables' as *;
+
+.article-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media(max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .order-articles {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.article-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  p {
+    flex: 1;
+  }
+}

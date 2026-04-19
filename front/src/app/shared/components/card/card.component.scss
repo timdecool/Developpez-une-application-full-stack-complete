@@ -1,0 +1,21 @@
+:host {
+  flex: 1;
+  max-width: 100%;
+  height: 100%;
+}
+
+.card {
+  cursor: pointer;
+  height: 100%;
+
+  .title-area {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .card-actions {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}

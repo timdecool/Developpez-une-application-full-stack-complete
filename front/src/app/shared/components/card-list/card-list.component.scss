@@ -1,0 +1,15 @@
+@use '../../../../styles/_variables' as *;
+
+:host {
+  width: 100%;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,18 @@
+@use '../../../../styles/_variables' as *;
+
+:host {
+  &.static {
+    position: absolute;
+    left: var(--spacing-md);
+    top: var(--spacing-md);
+
+    @media(max-width: $breakpoint-sm) {
+      left: var(--spacing-sm);
+      top: var(--spacing-sm);
+    }
+  }
+}
+
+.icon {
+  transform: scale(1.2);
+}

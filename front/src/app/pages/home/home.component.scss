@@ -1,7 +1,27 @@
-.center {
-  height: 100vh;
+@use '../../../styles/_variables' as *;
+
+.buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  gap: var(--spacing-lg);
+  justify-content: space-around;
+
+  a {
+    width: 200px;
+  }
 }
+
+@media screen and (max-width: $breakpoint-sm) {
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 var(--spacing-md);
+    box-sizing: border-box;
+    gap: var(--spacing-md);
+
+    a {
+      width: 100%;
+    }
+  }
+}
+
+

@@ -1,0 +1,74 @@
+<header class="app-header">
+  <app-logo size="sm" [hiddenLg]="false"/>
+  @if(authService.getUser()) {
+    <nav class="desktop-nav">
+      <ul class="nav-menu">
+        <li (click)="logout()" class="logout">Se déconnecter</li>
+        <li>
+          <a routerLink="/articles"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }"
+          >Articles</a>
+        </li>
+        <li>
+          <a
+            routerLink="/themes"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >Thèmes</a>
+        </li>
+        <li>
+          <a
+            routerLink="/profile"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <div class="avatar">
+              <img ngSrc="/assets/default-avatar.png" alt="Avatar" height="300" width="300" />
+            </div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <button mat-icon-button class="burger-menu" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  }
+
+  @if(menuOpen) {
+    <nav class="mobile-nav">
+      <ul class="nav-menu">
+        <div class="nav-group">
+
+          <li (click)="logout()" class="logout">Se déconnecter</li>
+          <li>
+            <a routerLink="/articles"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{ exact: true }"
+            >Articles</a>
+          </li>
+          <li>
+            <a
+              routerLink="/themes"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >Thèmes</a>
+          </li>
+        </div>
+        <div class="nav-group">
+          <li>
+            <a
+              routerLink="/profile"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <div class="avatar">
+                <img ngSrc="/assets/default-avatar.png" alt="Avatar" height="300" width="300" />
+              </div>
+            </a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+  }
+</header>

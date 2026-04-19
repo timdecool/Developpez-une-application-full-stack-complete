@@ -1,25 +1,47 @@
-# P6-Full-Stack-reseau-dev
+# P6 - Développez une application ful-stack complète
 
-## Front
+**Auteur :** Timothé DECOOL - **Date :** 19/04/2026
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+## Présentation projet
 
-Don't forget to install your node_modules before starting (`npm install`).
+Projet réalisé dans le cadre de la formation "Développeur Full-Stack - Java et Angular" sur OpenClassrooms.
+L'application "MDD" est un MVP (minimal valuable product) d'un réseau social dédié aux dévelopeurs. Il y est possible de :
+- Créer des articles 
+- Lire des articles
+- Commenter des articles
+- S'abonner à des thèmes et se désabonner
+- Créer un compte utilisateur, et le mettre à jour
 
-### Development server
+Des données d'exemple sont disponibles en base par défaut et ont été générées par intelligence artificielle.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Pile technique
 
-### Build
+### Frontend
+- **Angular** 21.2.6
+- **Angular Material** 21.2.4
+- **TypeScript** 5.9.3
+- **Node.js** 18+
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Backend
+- **Java** 17
+- **Spring Boot** 2.7.3
+- **Lombok** 1.18.30
+- **JJWT** 0.12.6
+- **MySQL** 8.0
 
-### Where to start
+### Infrastructure
+- **Docker** & **Docker Compose**
 
-As you may have seen if you already started the app, a simple home page containing a logo, a title and a button is available. If you take a look at its code (in the `home.component.html`) you will see that an external UI library is already configured in the project.
+## Démarrer l'application
 
-This library is `@angular/material`, it's one of the most famous in the angular ecosystem. As you can see on their docs (https://material.angular.io/), it contains a lot of highly customizable components that will help you design your interfaces quickly.
+Clonez le projet sur un dépôt local avec Git :
+> git clone https://github.com/timdecool/Developpez-une-application-full-stack-complete.git
 
-Note: I recommend to use material however it's not mandatory, if you prefer you can get rid of it.
+Démarrez l'application avec Docker en utilisant la commande suivante :
+> docker compose up --build
 
-Good luck!
+Vous pouvez alors accéder à l'application à l'adresse suivante :
+> http://localhost
+
+Pour stopper l'application, utilisez la commande suivante :
+> docker compose down -v

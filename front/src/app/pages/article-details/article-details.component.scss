@@ -1,0 +1,73 @@
+@use '../../../styles/_variables' as *;
+
+.article-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding-left: var(--spacing-lg);
+  box-sizing: border-box;
+
+  @media(max-width: $breakpoint-sm) {
+    padding-left: 0;
+  }
+
+  .title-area {
+    width: 100%;
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+
+  .article-data {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    color: var(--color-text-light);
+  }
+
+  .article-content {
+    text-align: justify;
+  }
+}
+
+.comments-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+
+  h3 {
+    align-self: flex-start;
+  }
+
+  .comment {
+    width: 100%;
+    display: flex;
+    gap: var(--spacing-sm);
+
+    @media(max-width: $breakpoint-sm) {
+      flex-direction: column;
+      gap: 0;
+      p {
+        align-self: flex-end;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .comment-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+
+    mat-form-field {
+      flex: 1;
+    }
+
+    button mat-icon {
+      transform: rotate(-45deg);
+    }
+  }
+}
